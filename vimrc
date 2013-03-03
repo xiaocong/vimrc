@@ -22,6 +22,7 @@ set bs=2		" allow backspacing over everything in insert mode
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set autoread		" auto read when file is changed from outside
+"set number              " show the line number
 
 
 filetype off          " necessary to make ftdetect work on Linux
@@ -38,17 +39,21 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 syntax on		" syntax highlight
 set hlsearch		" search highlighting
 
-if has("gui_running")	" GUI color and font settings
-  set guifont=Osaka-Mono:h20
-  set background=dark 
-  set t_Co=256          " 256 color mode
-  set cursorline        " highlight current line
-  colors moria
-  highlight CursorLine          guibg=#003853 ctermbg=24  gui=none cterm=none
-else
-" terminal color settings
-  colors vgod
-endif
+"if has("gui_running")	" GUI color and font settings
+"  set guifont=Bitstream\ Vera\ Sans\ Mono\ 10,Fixed\ 10
+"  set guifontwide=Microsoft\ Yahei\ 10,WenQuanYi\ Zen\ Hei\ 10
+"  set background=dark
+"  set t_Co=256          " 256 color mode
+"  set cursorline        " highlight current line
+"  "colors moria
+"  colors wombat256
+"  highlight CursorLine          guibg=#003853 ctermbg=24  gui=none cterm=none
+"else
+"" terminal color settings
+"  set background=dark
+"  "colors vgod
+"  colors peachpuff
+"endif
 
 set clipboard=unnamed	" yank to the system register (*) by default
 set showmatch		" Cursor shows matching ) and }
@@ -333,3 +338,27 @@ let g:snipMateAllowMatchingDot = 0
 
 " --- coffee-script
 au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw! " recompile coffee scripts on write
+
+" --- Set initial window size
+if has("gui_running")
+  " GUI is running or is about to start.
+  " Maximize gvim window.
+  set lines=45 columns=140
+endif
+
+" set the colorscheme
+if has("gui_running")	" GUI color and font settings
+  set guifont=Bitstream\ Vera\ Sans\ Mono\ 10,Fixed\ 10
+  set guifontwide=Microsoft\ Yahei\ 10,WenQuanYi\ Zen\ Hei\ 10
+  set background=dark
+  set t_Co=256          " 256 color mode
+  set cursorline        " highlight current line
+  "colors moria
+  colors wombat256
+  highlight CursorLine          guibg=#003853 ctermbg=24  gui=none cterm=none
+else
+" terminal color settings
+  set background=dark
+  "colors vgod
+  colors darkblue
+endif
