@@ -80,8 +80,8 @@ set tm=500
 
 " TAB setting{
    set expandtab        "replace <TAB> with spaces
-   set softtabstop=3 
-   set shiftwidth=3 
+   set softtabstop=4 
+   set shiftwidth=4 
 
    au FileType Makefile set noexpandtab
 "}      							
@@ -360,5 +360,5 @@ else
 " terminal color settings
   set background=dark
   "colors vgod
-  colors darkblue
+  colors textmate16
 endif
