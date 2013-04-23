@@ -339,6 +339,9 @@ let g:snipMateAllowMatchingDot = 0
 " --- coffee-script
 au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw! " recompile coffee scripts on write
 
+" --- markdown
+let g:vim_markdown_folding_disabled=1
+
 " --- Set initial window size
 if has("gui_running")
   " GUI is running or is about to start.
@@ -354,11 +357,11 @@ if has("gui_running")	" GUI color and font settings
   set t_Co=256          " 256 color mode
   set cursorline        " highlight current line
   "colors moria
-  colors wombat256
+  colors darkZ
   highlight CursorLine          guibg=#003853 ctermbg=24  gui=none cterm=none
 else
 " terminal color settings
   set background=dark
   "colors vgod
-  colors textmate16
+  colors darkdot
 endif
