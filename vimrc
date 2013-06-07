@@ -363,5 +363,5 @@ else
 " terminal color settings
   set background=dark
   "colors vgod
-  colors darkdot
+  colors peaksea
 endif
